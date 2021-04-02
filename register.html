@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Register form
+    </title>
+    <meta charset="UTF-8">
+    <meta property="keywords" content="">
+    <meta name="language" content="es_ES">
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
+  </head>
+  <body>
+    <div class="validations-hidden">
+    </div>
+    <div class="container">
+      <h1>Register</h1>
+      <form id="registerForm">
+				<label for="text" name="name" class="label">Full Name:</label>
+        <input type="text" class="input" required>
+        <label for="email" class="label">Email:</label>
+        <input type="email" class="input" required>
+        <label for="password" class="label">Password:</label>
+        <input type="password" class="input" required>
+				<label for="password" class="label">Confirm Password:</label>
+        <input type="password" class="input" required>
+        <input type="submit" class="inputButton" value="Sign Up">
+				<input type="submit" class="inputButtonReset" value="Reset">
+        <div>
+          <a class="linkRegister" href="login.html">Do you have an account? Log In</a>
+        </div>
+      </form>       
+    </div>
+		<script type="text/javascript" src="js/register.js"></script>
+  </body>
+  <footer class="footer">
+    2021. All wrights reserved
+  </footer>
+</html>
