@@ -1,5 +1,5 @@
 body {
-    padding: 100px 500px 1000px 100px;
+    padding: 100px;
     background-color:lightslategray;
     background-size: cover;
     font-family: sans-serif;
@@ -52,6 +52,22 @@ body {
   }
   
   .container input[type="submit"]:hover {
+    cursor: pointer;
+    background: #95b0fa;
+    color: #000;
+  }
+
+  .container input[type="reset"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #3c17d3;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+  
+  .container input[type="reset"]:hover {
     cursor: pointer;
     background: #95b0fa;
     color: #000;
