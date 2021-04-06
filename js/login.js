@@ -22,7 +22,7 @@ var inputsNumbers = function () {
 }
 inputsNumbers()
 
-var labels = function () {
+var labelsForInputs = function () {
   var input = document.querySelectorAll('.input');
   var label = document.querySelectorAll('.label');
   var inputLabel;
@@ -47,9 +47,9 @@ var labels = function () {
     errors.push(' There are Labels missing for inputs');
   }
 }
-labels();
+labelsForInputs();
 
-var required = function () {
+var requiredFields = function () {
   var inputs = document.querySelectorAll('.input');
   var inputRequired;
   for (var i = 0; i < inputs.length; i++){
@@ -68,9 +68,9 @@ var required = function () {
     errors.push(' Required attributes missing');
   }
 }
-required();
+requiredFields();
 
-var anchor = function () {
+var anchorLinkRegister = function () {
   var anchor = document.querySelector('.linkRegister');
   if (anchor.getAttribute('href') == 'register.html') {
     return true;
@@ -79,9 +79,9 @@ var anchor = function () {
     errors.push(' Anchor tag is invalid');
   }
 }
-anchor();
+anchorLinkRegister();
 
-var buttonExists = function() {
+var buttonLoginExists = function() {
   if (document.querySelector('.inputButton')) {
     return true;
   }
@@ -89,24 +89,24 @@ var buttonExists = function() {
     errors.push(' Missing submit button');
   }
 }
-buttonExists();
+buttonLoginExists();
 
-var buttonContent = function() {
+var buttonLoginContent = function() {
   var button = document.querySelector('.inputButton');
   if (button.getAttribute('value') == 'Log In') {
     return true;
   }
   else {
-    errors.push('Buttons content is wrong');
+    errors.push('Button content is wrong');
   }
 }
-buttonContent();
+buttonLoginContent();
 
 var validateAll = function () {
   var validationsHidden = document.querySelector('.validations-hidden');
   validationsHidden.className = 'validations';
-  if (formExists() == true && inputsNumbers() == true && labels() == true && required() == true && anchor() == true && 
-  buttonContent() == true && buttonExists() == true) {
+  if (formExists() == true && inputsNumbers() == true && labelsForInputs() == true && requiredFields() == true && 
+  anchorLinkRegister() == true && buttonLoginExists() == true && buttonLoginContent() == true) {
     validations.style.backgroundColor= 'green';
     validations.textContent =  'Every validation has passed!';
   }

@@ -22,7 +22,7 @@ var inputsNumbers = function () {
 }
 inputsNumbers()
 
-var labels = function () {
+var labelsForInputs = function () {
   var input = document.querySelectorAll('.input');
   var label = document.querySelectorAll('.label');
   var inputLabel;
@@ -47,9 +47,9 @@ var labels = function () {
     errors.push(' There are Labels missing for inputs');
   }
 }
-labels();
+labelsForInputs();
 
-var required = function () {
+var requiredFields = function () {
   var inputs = document.querySelectorAll('.input');
   var inputRequired;
   for (var i = 0; i < inputs.length; i++){
@@ -68,9 +68,9 @@ var required = function () {
     errors.push(' Required attributes missing');
   }
 }
-required();
+requiredFields();
 
-var anchor = function () {
+var anchorLinkLogin = function () {
   var anchor = document.querySelector('.linkRegister');
   if (anchor.getAttribute('href') == 'login.html') {
     return true;
@@ -79,19 +79,29 @@ var anchor = function () {
     errors.push(' Anchor tag is invalid');
   }
 }
-anchor();
+anchorLinkLogin();
 
-var buttonExists = function() {
+var buttonSignupExists = function() {
   if (document.querySelector('.inputButton')) {
     return true;
   }
   else {
-    errors.push(' Missing submit button');
+    errors.push(' Missing Sign Up button');
   }
 }
-buttonExists();
+buttonSignupExists();
 
-var buttonContent = function() {
+var buttonResetExists = function() {
+  if (document.querySelector('.inputButtonReset')) {
+    return true;
+  }
+  else {
+    errors.push(' Missing reset button');
+  }
+}
+buttonResetExists();
+
+var buttonContentSignup = function() {
   var button = document.querySelector('.inputButton');
   if (button.getAttribute('value') == 'Sign Up') {
     return true;
@@ -100,7 +110,7 @@ var buttonContent = function() {
     errors.push('Buttons content is wrong');
   }
 }
-buttonContent();
+buttonContentSignup();
 
 var buttonContentReset = function() {
   var button = document.querySelector('.inputButtonReset');
@@ -116,8 +126,9 @@ buttonContentReset();
 var validateAll = function () {
   var validationsHidden = document.querySelector('.validations-hidden');
   validationsHidden.className = 'validations';
-  if (formExists() == true && inputsNumbers() == true && labels() == true && required() == true && anchor() == true && 
-  buttonContent() == true && buttonContentReset() == true && buttonExists() == true) {
+  if (formExists() == true && inputsNumbers() == true && labelsForInputs() == true && requiredFields() == true && 
+  anchorLinkLogin() == true && buttonSignupExists() == true && buttonResetExists() == true && 
+  buttonContentSignup() == true && buttonContentReset() == true) {
     validations.style.backgroundColor= 'green';
     validations.textContent =  'Every validation has passed!';
   }
