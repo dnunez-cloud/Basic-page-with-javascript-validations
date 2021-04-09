@@ -37,20 +37,20 @@ var wrongPasswordHidden = function () {
 
 passwordField.addEventListener ('focus', wrongPasswordHidden)
 
-async function getUserData() {
-  fetch('https://jsonplaceholder.typicode.com/users?email='+document.querySelector('#emailField').value)
-  .then (response => response.json())
+var getUserData = function () {
+  return fetch('https://jsonplaceholder.typicode.com/users?email='+document.querySelector('#emailField').value)
+  .then (response => response.text())
   .then (data => {
-    return data;
+    console.log(data);
     });
 }
 
 var showData = function () {
-  var serverUserData = getUserData();
+  getUserData();
   var formData;
   if (document.querySelector('.validations')){
     document.querySelector('.validations').className = 'validations-status';  
-    formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value + ' ' + serverUserData;
+    formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;
     document.querySelector('.validations-status').textContent = formData;
     document.querySelector('.validations-status').style.backgroundColor = 'white';
   }

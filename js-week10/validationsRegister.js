@@ -71,7 +71,16 @@ var wrongSecondPassword = function () {
 
 secondPasswordField.addEventListener ('focus', wrongSecondPassword)
 
+var getUserData = function () {
+  return fetch('https://jsonplaceholder.typicode.com/users?email='+document.querySelector('#emailField').value)
+  .then (response => response.text())
+  .then (data => {
+    console.log(data);
+    });
+}
+
 var showData = function () {
+  getUserData();
   var formData = '';
   if (document.querySelector('.validations')) {
     document.querySelector('.validations').className = 'validations-status';  
