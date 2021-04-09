@@ -8,27 +8,34 @@
     <meta property="keywords" content="">
     <meta name="language" content="es_ES">
     <link rel="stylesheet" href="css/reset.css"> 
-    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="validations-hidden">
-    </div>
     <div class="container">
       <h1>Login</h1>
       <form id="loginForm">
         <label for="email" class="label">Email:</label>
-        <input type="email" class="input" required>
+        <input type="email" class="input" id="emailField" required>
+        <span class="errorEmail-hidden">
+          Wrong email format
+        </span>
         <label for="password" class="label">Password:</label>
-        <input type="password" class="input" required>
-        <input type="submit" class="inputButton" value="Log In">
+        <input type="password" class="input" id="passwordField" required>
+        <span class="errorPassword-hidden">
+          Wrong password. Must have 8 characters minimum with letters and numbers
+        </span>
+        <input type="button" class="inputButton" value="Log In">
         <div>
           <a class="linkRegister" href="register.html">You don't have an account?</a>
         </div>
       </form>
     </div>
+    <div class="validations-hidden">
+    </div>
     <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js-week10/validationsLogin.js"></script>
   </body>
   <footer class="footer">
-    2021. All wrights reserved
+    2021. All rights reserved
   </footer>
 </html>
