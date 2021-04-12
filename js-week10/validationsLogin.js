@@ -7,6 +7,7 @@ var emailCorrectFormat = function () {
   var correctFormat = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
   if (!correctFormat.test(emailField.value)) {
     document.querySelector('.errorEmail-hidden').className = 'errorEmail';
+    return true;
   }
 }
 
@@ -24,6 +25,7 @@ var validPassword = function () {
   var correctPassword = /(([\d]+[A-Za-z]+)|[A-Za-z]+[\d]+$)/g;
   if (passwordField.value.length < 8 || !correctPassword.test(passwordField.value)) {
     document.querySelector('.errorPassword-hidden').className = 'errorPassword';
+    return true;
   }
 }
 
@@ -45,19 +47,40 @@ var getUserData = function () {
     });
 }
 
-var showData = function () {
-  getUserData();
-  var formData;
-  if (document.querySelector('.validations')){
-    document.querySelector('.validations').className = 'validations-status';  
-    formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;
-    document.querySelector('.validations-status').textContent = formData;
-    document.querySelector('.validations-status').style.backgroundColor = 'white';
+var validateFormFields = function () {
+  if (emailCorrectFormat() == true || validPassword() == true) {
+    return false;
   }
   else {
+    return true;
+  }
+}
+
+var showData = function () {
+  var formData;
+  if (validateFormFields() == true) {
+    getUserData();
+    if (document.querySelector('.validations')){
+      document.querySelector('.validations').className = 'validations-status';  
+      formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;
+      document.querySelector('.validations-status').textContent = formData;
+      document.querySelector('.validations-status').style.backgroundColor = 'white';
+    }
+    else {
     formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;
     document.querySelector('.validations-status').textContent = formData;
     document.querySelector('.validations-status').style.backgroundColor = 'white';
+    }
+  }
+  else {
+    if (document.querySelector('.validations-status')){
+      document.querySelector('.validations-status').textContent = 'Some input has invalid data, please check again';
+      document.querySelector('.validations-status').style.backgroundColor = 'red';
+    }
+    else {
+      document.querySelector('.validations').textContent = 'Some input has invalid data, please check again';
+      document.querySelector('.validations').style.backgroundColor = 'red';
+    }
   }
 }
 
