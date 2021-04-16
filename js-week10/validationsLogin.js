@@ -47,6 +47,20 @@ var getUserData = function () {
     });
 }
 
+var handleLogin = function () {
+  var url = 'http://localhost:4000/login/:email/:password';
+  var email = document.querySelector('#emailField').value;
+  var password = document.querySelector('#passwordField').value;
+  fetch(url, {
+    mode: 'no-cors',
+    method: 'PUT',
+    body: JSON.stringify({email:email, password:password}),
+  })
+  .then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', response));
+}
+
 var validateFormFields = function () {
   if (emailCorrectFormat() == true || validPassword() == true) {
     return false;
@@ -60,6 +74,7 @@ var showData = function () {
   var formData;
   if (validateFormFields() == true) {
     getUserData();
+    handleLogin();
     if (document.querySelector('.validations')){
       document.querySelector('.validations').className = 'validations-status';  
       formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;

@@ -83,6 +83,25 @@ var getUserData = function () {
     });
 }
 
+var handleRegister = function () {
+  var url = 'http://localhost:4000/register';
+  var data = {
+    fullname: document.querySelector('#fullnameField').value,
+    email: document.querySelector('#emailField').value,
+    password: document.querySelector('#passwordField').value,
+  }
+  let dataJson = JSON.stringify(data);
+  console.log(dataJson)
+  fetch(url, {
+    mode: 'no-cors',
+    method: 'POST',
+    body: (dataJson),
+  })
+  .then(res => res.json())
+  .catch(error => console.log(error))
+  .then(response => console.log(response));
+}
+
 var validateFormFields = function () {
   if (validFullname() == true || emailCorrectFormat() == true || validPassword() == true || matchPasswords() == 
   true) {
@@ -97,6 +116,7 @@ var showData = function () {
   var formData = '';
   if (validateFormFields() == true) {
     getUserData();
+    handleRegister();
     if (document.querySelector('.validations')) {
       document.querySelector('.validations').className = 'validations-status';  
       formData = 'Fullname: ' + fullnameField.value + ' ' + 'Email: ' + emailField.value + ' ' + 'Password: ' + 
