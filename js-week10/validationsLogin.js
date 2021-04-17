@@ -48,16 +48,22 @@ var getUserData = function () {
 }
 
 var handleLogin = function () {
-  var url = 'http://localhost:4000/login/:email/:password';
-  var email = document.querySelector('#emailField').value;
-  var password = document.querySelector('#passwordField').value;
+  var url = 'http://localhost:4000/login';
+  var data = {
+  email: document.querySelector('#emailField').value,
+  password: document.querySelector('#passwordField').value
+  }
   fetch(url, {
-    mode: 'no-cors',
     method: 'PUT',
-    body: JSON.stringify({email:email, password:password}),
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(data)
   })
   .then(res => res.json())
-  .catch(error => console.error('Error:', error))
   .then(response => console.log('Success:', response));
 }
 

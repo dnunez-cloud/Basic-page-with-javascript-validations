@@ -88,18 +88,17 @@ var handleRegister = function () {
   var data = {
     fullname: document.querySelector('#fullnameField').value,
     email: document.querySelector('#emailField').value,
-    password: document.querySelector('#passwordField').value,
+    password: document.querySelector('#passwordField').value
   }
-  let dataJson = JSON.stringify(data);
-  console.log(dataJson)
   fetch(url, {
-    mode: 'no-cors',
     method: 'POST',
-    body: (dataJson),
+    mode: 'cors',
+    credentials: 'same-origin',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data),
   })
   .then(res => res.json())
-  .catch(error => console.log(error))
-  .then(response => console.log(response));
+  .then(response => console.log('Success:', response));
 }
 
 var validateFormFields = function () {
