@@ -115,7 +115,6 @@ var showData = function () {
   var formData = '';
   if (validateFormFields() == true) {
     getUserData();
-    handleRegister();
     if (document.querySelector('.validations')) {
       document.querySelector('.validations').className = 'validations-status';  
       formData = 'Fullname: ' + fullnameField.value + ' ' + 'Email: ' + emailField.value + ' ' + 'Password: ' + 

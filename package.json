@@ -1,0 +1,30 @@
+{
+  "name": "week9",
+  "version": "1.0.0",
+  "description": "Validations:\r Register form:\r Email input con type email. Required. Label.\r Full name input con type text. Required. Label.\r Password input con type password. Required. Label.\r Confirm password input con type password. Required. Label.\r Botón de submit “Registrarse”.\r Buttons Sign Up and Reset, required fields, inputs quantity, Labels and inputs, anchor\r content",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio run ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnunez-cloud/week9.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnunez-cloud/week9/issues"
+  },
+  "homepage": "https://github.com/dnunez-cloud/week9#readme",
+  "dependencies": {
+    "@wdio/cli": "^7.5.7"
+  },
+  "devDependencies": {
+    "@wdio/jasmine-framework": "^7.5.3",
+    "@wdio/local-runner": "^7.5.7",
+    "@wdio/spec-reporter": "^7.5.7",
+    "@wdio/sync": "^7.5.7",
+    "chromedriver": "^90.0.0",
+    "wdio-chromedriver-service": "^7.0.0"
+  }
+}

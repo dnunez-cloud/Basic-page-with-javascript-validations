@@ -77,7 +77,6 @@ var showData = function () {
   var formData;
   if (validateFormFields() == true) {
     getUserData();
-    handleLogin();
     if (document.querySelector('.validations')){
       document.querySelector('.validations').className = 'validations-status';  
       formData = 'Email: ' + emailField.value + ' ' + 'Password: ' + passwordField.value;
