@@ -157,6 +157,6 @@ describe('Register tests', () => {
 
 	it("can find login page", () =>{
     logInLink.click();
-    expect(browser).toHaveUrl('http://localhost:3000/login')
+    expect(browser).toHaveUrl('https://dnunez-cloud.github.io/week9/login.html')
   })
 });

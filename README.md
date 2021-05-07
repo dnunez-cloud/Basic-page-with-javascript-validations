@@ -1,5 +1,8 @@
 # week9
 WEEK 14
+URL FOR LOGIN HTML : https://dnunez-cloud.github.io/week9/login.html
+URL FOR REGISTER HTML: https://dnunez-cloud.github.io/week9/register.html
+
 In folder test/spec are loginAutomations.js & registerAutomations.js ..
 In folder test/pageObjects are login.page.js , page.js & register.page.js ..
 
