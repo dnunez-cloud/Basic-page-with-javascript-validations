@@ -7,39 +7,39 @@ describe('Login tests', () => {
 		browser.pause(1000);
 	})
 
-  it("Should be: wrong email format when @ is missing",  () =>{
+  it("should be: wrong email format when email is invalid",  () =>{
     loginPage.emailField.setValue("dario");
     browser.keys("Tab");
     expect(loginPage.errorEmail).toHaveTextContaining("Wrong email format");
   })
 
-	it("should be: wrong email format when email field is empty",  () =>{
+	it("should be: wrong email format when email is invalid",  () =>{
     loginPage.emailField.setValue("");
     browser.keys("Tab");
     expect(loginPage.errorEmail).toHaveTextContaining("Wrong email format");
   })
 
-	it("should be: errorEmail empty field when the email has correct format",  () =>{
+	it("should be: errorEmail empty field when email is valid",  () =>{
     loginPage.emailField.setValue("dario@hotmail.com");
     browser.keys("Tab");
     expect(loginPage.errorEmail).toHaveTextContaining("");
   })
 
-  it("should be: Wrong password. when are less than 8 characters", () =>{
+  it("should be: Wrong password. when password is invalid", () =>{
     loginPage.passwordField.setValue("asdasd1");
     browser.keys("Tab");
     expect(loginPage.errorPassword).toHaveTextContaining(
 			"Wrong password. Must have 8 characters minimum with letters and numbers");
   })
 
-	it("should be: wrong password, when there are only letters", () =>{
+	it("should be: wrong password, when password is invalid", () =>{
     loginPage.passwordField.setValue("asdasdasd");
     browser.keys("Tab");
     expect(loginPage.errorPassword).toHaveTextContaining(
 			"Wrong password. Must have 8 characters minimum with letters and numbers");
   })
 
-	it("should be: wrong password, when there are only numbers", () =>{
+	it("should be: wrong password, when password is invalid", () =>{
     loginPage.passwordField.setValue("12345678");
     browser.keys("Tab");
     expect(loginPage.errorPassword).toHaveTextContaining(
@@ -55,33 +55,19 @@ describe('Login tests', () => {
 	it("should be: Email: dario@hotmail.com Password: asdasd12 when fields are fill correctly", () =>{
 		loginPage.emailField.setValue("dario@hotmail.com");
     loginPage.passwordField.setValue("asdasd12");
-    loginButton.click();
+    loginPage.loginButton.click();
     expect(loginPage.validationField).toHaveTextContaining("Email: dario@hotmail.com Password: asdasd12");
+    browser.refresh();
   })
 
-	it("should be: Some input has invalid data, please check again when email is invalid", () =>{
-		loginPage.emailField.setValue("dario");
-    loginPage.passwordField.setValue("asdasd12");
-    loginButton.click();
+	it("should be: Some input has invalid data, please check again when data inputs is invalid", () =>{
+    loginPage.loginButton.click();
     expect(loginPage.validationField).toHaveTextContaining("Some input has invalid data, please check again");
   })
 	
-	it("should be: Some input has invalid data, please check again when password is invalid", () =>{
-		loginPage.emailField.setValue("dario@hotmail.com");
-    loginPage.passwordField.setValue("asdasd");
-    loginButton.click();
-    expect(loginPage.validationField).toHaveTextContaining("Some input has invalid data, please check again");
-  })
-
-	it("should be: Some input has invalid data, please check again when password & email is invalid", () =>{
-		loginPage.emailField.setValue("dario");
-    loginPage.passwordField.setValue("aaa");
-    loginButton.click();
-    expect(loginPage.validationField).toHaveTextContaining("Some input has invalid data, please check again");
-  })
-
 	it("can find register page", () =>{
-    registerLink.click();
+    loginPage.registerLink.click();
     expect(browser).toHaveUrl('https://dnunez-cloud.github.io/week9/register.html')
   })
+
 });
